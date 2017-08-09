@@ -13,12 +13,13 @@ import {HomeComponent} from './home/home.component';
 import {RouterModule, Routes} from "@angular/router";
 import {ProductService} from "./shared/product.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { FilterPipe } from './pipe/filter.pipe';
+import {FilterPipe} from './pipe/filter.pipe';
+import {HttpModule} from "@angular/http";
 
 const routeConfig: Routes = [
   {path: '', component: HomeComponent},
   {path: 'product/:productId', component: ProductDetailComponent},
-  {path:'**',component:HomeComponent}
+  {path: '**', component: HomeComponent}
 ];
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ const routeConfig: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     RouterModule.forRoot(routeConfig),
     ReactiveFormsModule
   ],
